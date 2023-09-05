@@ -1,0 +1,20 @@
+model:
+  names: [ "DDoS","FTP-Patator","normal","PortScan","SSH-Patator","web_scan_dir" ]
+  save_name: http://172.22.121.63:23514/model/simulator/ResNet-1d6b7b3e.pth
+  checkpoint_path: classification_model.pth
+defense_model:
+  dataset_path: ../../../datasets/CIC-IDS2017/MachineLearningCVE/real/defense_dataset
+  save_name: http://172.22.121.63:23514/model/simulator/vit-aaae5dac.pth
+  checkpoint_path: defense_model.pth
+trainer:
+  num_epochs: 1000
+  batch_size: 128
+  resume: False
+  lr: 0.0001
+  # dataset_path: ../../../datasets/CIC-IDS2017/MachineLearningCVE/real/image
+  dataset_path: simulator/datasets/flow_new/
+  sub_dataset: http://172.22.121.63:23514/datasets/flow/flow_dataset_new.zip
+  sub_dataset_md5: 4cb1edf9c47c9fc17ed48fec2ee7c4b1
+  muti_gpu: True
+  valid_ratio: 0.2
+  num_workers: 8
